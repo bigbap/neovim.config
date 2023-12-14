@@ -19,6 +19,13 @@ return {
 		priority = 1000,
 		name = 'catppuccin',
 		config = function()
+            require('catppuccin').setup({
+                custom_highlights = function()
+                    return {
+                        Comment = { fg = 'red' }
+                    }
+                end
+            })
 			vim.cmd.colorscheme('catppuccin')
 
 			vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
