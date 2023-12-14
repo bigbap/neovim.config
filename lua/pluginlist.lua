@@ -71,8 +71,8 @@ return {
 		}
 	},
 	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
+		'folke/which-key.nvim',
+		event = 'VeryLazy',
 		init = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
@@ -82,5 +82,22 @@ return {
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
 		}
-	}
+	},
+    {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        config = true
+    },
+	-- {
+	-- 	-- DAP
+	-- 	{
+	-- 		'mfussenegger/nvim-dap',
+	-- 		{
+	-- 			'jay-babu/mason-nvim-dap.nvim',
+	-- 			dependencies = {
+	-- 				'williamboman/mason.nvim'
+	-- 			}
+	-- 		}
+	-- 	}
+	-- }
 }
