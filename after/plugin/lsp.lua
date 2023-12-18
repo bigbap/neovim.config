@@ -1,10 +1,9 @@
 -- nvim/after/plugins/lsp.lua
 
 local on_attach = function(_, bufnr)
-
 	local bufmap = function(keys, func, desc)
 		vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-	end
+    end
 
 	bufmap('<leader>r', vim.lsp.buf.rename, 'Rename')
 	bufmap('<leader>a', vim.lsp.buf.code_action, 'Code Action')
@@ -13,8 +12,9 @@ local on_attach = function(_, bufnr)
 	bufmap('gD', vim.lsp.buf.declaration)
 	bufmap('gI', vim.lsp.buf.implementation)
 	bufmap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
+    bufmap('<leader>e', vim.diagnostic.open_float, "Expand Diagnostics");
 
-	bufmap('gr', require('telescope.builtin').lsp_reference)
+    bufmap('gr', require('telescope.builtin').lsp_reference)
 	bufmap('<leader>s', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
 	bufmap('<leader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Dynamic Workspace Symbols')
 
@@ -58,7 +58,7 @@ require('mason-lspconfig').setup_handlers({
 		require('neodev').setup()
 		require('lspconfig').lua_ls.setup {
 			on_attach = on_attach,
-			capabilities = capabilities,	
+			capabilities = capabilities,
 			Lua = {
 				workspace = { checkThirdParty = false },
 				telemetry = { enable = false }
