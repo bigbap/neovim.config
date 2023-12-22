@@ -95,16 +95,17 @@ return {
         version = "*",
         config = true
     },
-	-- {
-	-- 	-- DAP
-	-- 	{
-	-- 		'mfussenegger/nvim-dap',
-	-- 		{
-	-- 			'jay-babu/mason-nvim-dap.nvim',
-	-- 			dependencies = {
-	-- 				'williamboman/mason.nvim'
-	-- 			}
-	-- 		}
-	-- 	}
-	-- }
+	{
+		-- DAP
+        -- 'nvim-lua/plenary.nvim',
+        -- {
+        --     'rcarriga/nvim-dap-ui',
+        --     dependencies = {
+        --         'mfussenegger/nvim-dap'
+        --     }
+        -- },
+        -- 'simrat39/rust-tools.nvim',
+        -- 'mfussenegger/nvim-dap'
+        -- 'nvim-telescope/telescope-dap.nvim'
+	}
 }

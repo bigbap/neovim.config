@@ -1,18 +1,58 @@
+-- setup debugger based on vscode plugin - if this breaks chances are the plugin got updated so alter the path to match on next line...
+-- local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.8.1-universal/'
+-- local codelldb_path = extension_path .. 'adapter/codelldb'
+-- local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+--
+-- local rt = require('rust-tools')
+--
+-- local opts = {
+--     tools = {
+--         ...
+--     },
+--     server = {
+--         ...
+--     },
+--     dap = {
+--         adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
+--     },
+-- }
+-- rt.setup(opts)
+
+-- local rt = require("rust-tools")
+--
+-- rt.setup({
+--   server = {
+--     on_attach = function(_, bufnr)
+--       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+--       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+--     end,
+--   },
+-- })
+
+-- local dap = require('dap')
+-- vim.keymap.set('n', '<F5>', function() dap.continue() end)
+-- vim.keymap.set('n', '<F10>', function() dap.step_over() end)
+-- vim.keymap.set('n', '<F11>', function() dap.step_into() end)
+-- vim.keymap.set('n', '<F12>', function() dap.step_out() end)
+-- vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end)
+-- vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end)
+-- vim.keymap.set('n', '<Leader>df', function() require("dapui").float_element('scopes', { enter = true }) end)
+
 -- local js_based_languages = {
--- 	"typescript",
--- 	"javascript",
--- 	"vue",
+-- 	'typescript',
+-- 	'javascript',
+-- 	'vue',
 -- }
 
--- local Config = require("Lazyvim.config")
+-- local Config = require('Lazyvim.config')
 
--- vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+-- vim.api.nvim_set_hl(0, 'DapStoppedLine', { default = true, link = 'Visual' })
 --
 -- for name, sign in pairs(Config.icons.dap) do
--- 	sign = type(sign) == "table" and sign or { sign }
+-- 	sign = type(sign) == 'table' and sign or { sign }
 -- 	vim.fn.sign_define(
--- 		"Dap" .. name,
--- 		{ text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
+-- 		'Dap' .. name,
+-- 		{ text = sign[1], texthl = sign[2] or 'DiagnosticInfo', linehl = sign[3], numhl = sign[3] }
 -- 	)
 -- end
 
@@ -24,40 +64,40 @@
 -- 	}
 -- })
 
--- local dap = require("dap")
+-- local dap = require('dap')
 -- for _, language in ipairs(js_based_languages) do
 -- 	dap.configurations[language] = {
 -- 		-- Debug single nodejs files
 -- 		{
--- 			type = "pwa-node",
--- 			request = "launch",
--- 			name = "Launch file",
--- 			program = "${file}",
+-- 			type = 'pwa-node',
+-- 			request = 'launch',
+-- 			name = 'Launch file',
+-- 			program = '${file}',
 -- 			cwd = vim.fn.getcwd(),
 -- 			sourceMaps = true,
 -- 		},
 -- 		-- Debug nodejs processes (make sure to add --inspect when you run the process)
 -- 		{
--- 			type = "pwa-node",
--- 			request = "attach",
--- 			name = "Attach",
--- 			processId = require("dap.utils").pick_process,
+-- 			type = 'pwa-node',
+-- 			request = 'attach',
+-- 			name = 'Attach',
+-- 			processId = require('dap.utils').pick_process,
 -- 			cwd = vim.fn.getcwd(),
 -- 			sourceMaps = true,
 -- 		},
 -- 		-- Debug web applications (client side)
 -- 		{
--- 			type = "pwa-chrome",
--- 			request = "launch",
--- 			name = "Launch & Debug Chrome",
+-- 			type = 'pwa-chrome',
+-- 			request = 'launch',
+-- 			name = 'Launch & Debug Chrome',
 -- 			url = function()
 -- 				local co = coroutine.running()
 -- 				return coroutine.create(function()
 -- 					vim.ui.input({
--- 						prompt = "Enter URL: ",
--- 						default = "http://localhost:3000",
+-- 						prompt = 'Enter URL: ',
+-- 						default = 'http://localhost:3000',
 -- 					}, function(url)
--- 						if url == nil or url == "" then
+-- 						if url == nil or url == '' then
 -- 							return
 -- 						else
 -- 							coroutine.resume(co, url)
@@ -66,17 +106,17 @@
 -- 				end)
 -- 			end,
 -- 			webRoot = vim.fn.getcwd(),
--- 			protocol = "inspector",
+-- 			protocol = 'inspector',
 -- 			sourceMaps = true,
 -- 			userDataDir = false,
 -- 		},
 -- 		-- Divider for the launch.json derived configs
 -- 		{
--- 			name = "----- ↓ launch.json configs ↓ -----",
--- 			type = "",
--- 			request = "launch",
+-- 			name = '----- ↓ launch.json configs ↓ -----',
+-- 			type = '',
+-- 			request = 'launch',
 -- 		},
 -- 	}
 -- end
 --
--- vim.keymap.set("n", "<leader>dO", dap.step_out(), { desc = "Step Out" })
+-- vim.keymap.set('n', '<leader>dO', dap.step_out(), { desc = 'Step Out' })

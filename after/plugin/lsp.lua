@@ -64,5 +64,17 @@ require('mason-lspconfig').setup_handlers({
 				telemetry = { enable = false }
 			}
 		}
-	end
+	end,
+
+    ['rust_analyzer'] = function()
+        require('lspconfig').rust_analyzer.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+                ['rust-analyzer'] = {
+                    check = { command = 'clippy' }
+                }
+            }
+        }
+    end
 })
