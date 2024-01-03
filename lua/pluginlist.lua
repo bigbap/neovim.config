@@ -36,7 +36,11 @@ return {
         'ellisonleao/gruvbox.nvim',
         priority = 1000,
         config = function()
-            require('gruvbox').setup()
+            require('gruvbox').setup({
+                overrides = {
+                    Comment = { fg = 'red' }
+                }
+            })
             -- vim.cmd.colorscheme('gruvbox')
         end
     },
