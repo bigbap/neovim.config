@@ -26,12 +26,20 @@ return {
                     }
                 end
             })
-			vim.cmd.colorscheme('catppuccin')
+			-- vim.cmd.colorscheme('catppuccin')
 
-			vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-			vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+			-- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+			-- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 		end
 	},
+    {
+        'ellisonleao/gruvbox.nvim',
+        priority = 1000,
+        config = function()
+            require('gruvbox').setup()
+            -- vim.cmd.colorscheme('gruvbox')
+        end
+    },
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {
