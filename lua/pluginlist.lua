@@ -39,14 +39,23 @@ return {
             })
         end
     },
+    -- {
+    --     'crispybaccoon/evergarden',
+    --     priority = 1000,
+    --     config = function()
+    --         require('evergarden').setup({})
+    --     end
+    -- },
     {
-        'crispybaccoon/evergarden',
+        'rebelot/kanagawa.nvim',
         priority = 1000,
         config = function()
-            require('evergarden').setup({
-                overrides = {
-                    Comment = { fg = 'red' }
-                }
+            require('kanagawa').setup({
+                overrides = function ()
+                    return {
+                        Comment = { fg = '#C34043' }
+                    }
+                end
             })
         end
     },
