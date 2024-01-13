@@ -6,7 +6,8 @@ require('nvim-treesitter.configs').setup {
 		'cpp',
 		'typescript',
 		'javascript',
-		'rust'
+		'rust',
+        'glsl'
 	},
 
 	auto_install = false,
@@ -15,3 +16,4 @@ require('nvim-treesitter.configs').setup {
 
 	indent = { enable = true },
 }
+

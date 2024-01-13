@@ -26,10 +26,6 @@ return {
                     }
                 end
             })
-			-- vim.cmd.colorscheme('catppuccin')
-
-			-- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-			-- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 		end
 	},
     {
@@ -41,7 +37,17 @@ return {
                     Comment = { fg = 'red' }
                 }
             })
-            -- vim.cmd.colorscheme('gruvbox')
+        end
+    },
+    {
+        'crispybaccoon/evergarden',
+        priority = 1000,
+        config = function()
+            require('evergarden').setup({
+                overrides = {
+                    Comment = { fg = 'red' }
+                }
+            })
         end
     },
 	{
@@ -119,5 +125,8 @@ return {
         -- 'simrat39/rust-tools.nvim',
         -- 'mfussenegger/nvim-dap'
         -- 'nvim-telescope/telescope-dap.nvim'
-	}
+	},
+    {
+        'nathom/filetype.nvim'
+    }
 }

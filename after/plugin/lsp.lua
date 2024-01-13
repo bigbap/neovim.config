@@ -12,7 +12,7 @@ local on_attach = function(_, bufnr)
 	bufmap('gD', vim.lsp.buf.declaration)
 	bufmap('gI', vim.lsp.buf.implementation)
 	bufmap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
-    bufmap('<leader>e', vim.diagnostic.open_float, "Expand Diagnostics");
+    bufmap('<leader>e', vim.diagnostic.open_float, 'Expand Diagnostics');
 
     bufmap('gr', require('telescope.builtin').lsp_reference)
 	bufmap('<leader>s', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
@@ -43,14 +43,14 @@ require('mason-lspconfig').setup({
 	ensure_installed = {
 		'lua_ls',
 		'tsserver',
-		'rust_analyzer'
+		'rust_analyzer',
 	}
 })
 require('mason-lspconfig').setup_handlers({
 	function(server_name)
 		require('lspconfig')[server_name].setup {
 			on_attach = on_attach,
-			capabilities = capabilities
+			capabilities = capabilities,
 		}
 	end,
 
@@ -76,5 +76,9 @@ require('mason-lspconfig').setup_handlers({
                 }
             }
         }
-    end
+    end,
 })
+
+-- require('lspconfig').glsl_analyzer.setup {
+--     filetypes = { 'glsl', 'vert', 'tesc', 'tese', 'frag', 'geom', 'comp' }
+-- }
