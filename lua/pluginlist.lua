@@ -4,14 +4,7 @@ return {
 	{
 		'numToStr/Comment.nvim',
 		config = function()
-			require('Comment').setup(
-				-- {
-				-- 	toggler = {
-				-- 		line = 'gcc',
-				-- 		block = 'gbc'
-				-- 	}
-				-- }
-			)
+			require('Comment').setup()
 		end
 	},
 	{
@@ -39,13 +32,6 @@ return {
             })
         end
     },
-    -- {
-    --     'crispybaccoon/evergarden',
-    --     priority = 1000,
-    --     config = function()
-    --         require('evergarden').setup({})
-    --     end
-    -- },
     {
         'rebelot/kanagawa.nvim',
         priority = 1000,
