@@ -21,6 +21,11 @@ return {
             })
 		end
 	},
+	{
+		'p00f/alabaster.nvim',
+		priority = 1000,
+		name = 'alabaster',
+	},
     {
         'ellisonleao/gruvbox.nvim',
         priority = 1000,
